@@ -1,3 +1,4 @@
+import 'package:dribbbleapp/util/exercise_tile.dart';
 import 'package:flutter/material.dart';
 
 import '../util/emoticon_face.dart';
@@ -8,7 +9,7 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
+  
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -20,11 +21,11 @@ class _HomePageState extends State<HomePage> {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.message),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.person),
           label: '',
         ),
       ],),
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  padding: const EdgeInsets.all(25),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           SizedBox(
-            height: 25,
+            height: 30,
           ),
 
           Row(
@@ -214,21 +215,87 @@ class _HomePageState extends State<HomePage> {
 
 
           SizedBox(
-            height: 25,
+            height: 30,
           ),
+
           Expanded(
             child: Container(
-              color: Colors.grey[100],
+              padding: EdgeInsets.all(25),
+              color: Colors.grey[200],
               child: Center(
                 child: Column(
                   children: [
-                    Text('Exercises'),
-                  ],
+                    // exercise heading
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Exercise',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
 
+                        Icon(Icons.more_horiz),
+                      ],
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          ExerciseTile(
+                            icon: Icons.favorite,
+                            exerciseName: 'Speaking Skills',
+                            numberOfExercises: 15,
+                            color: Colors.redAccent,
+                          ),
+                          ExerciseTile(
+                            icon: Icons.person,
+                            exerciseName: 'Reading Skills',
+                            numberOfExercises: 8,
+                            color: Colors.yellow,
+                          ),
+                          ExerciseTile(
+                            icon: Icons.star,
+                            exerciseName: 'Writing Skills',
+                            numberOfExercises: 19,
+                            color: Colors.blue,
+                          ),
+                          ExerciseTile(
+                            icon: Icons.favorite,
+                            exerciseName: 'Flutter Skills',
+                            numberOfExercises: 21,
+                            color: Colors.green,
+                          ),
+                          ExerciseTile(
+                            icon: Icons.music_note,
+                            exerciseName: 'Listening Skills',
+                            numberOfExercises: 10,
+                            color: Colors.orange,
+                          ),
+
+
+                        ],
+                      ),
+                    ),
+
+
+
+
+
+
+                  ],
                 ),
               ),
-            ),
-          ),
+                ),
+              ),
+
+          
 
 
         ],),
